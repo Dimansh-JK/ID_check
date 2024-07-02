@@ -22,11 +22,25 @@ exports.config = {
       waitForTimeout: 10000,
       windowSize: '1400x900',
     },
+    Mochawesome: {
+      uniqueScreenshotNames: 'true',
+    },
+    ChaiWrapper: {
+      require: 'codeceptjs-chai',
+    },
   },
   include: {
     I: './steps_file.js',
 
-    docStatePage: "./pages/docState.js",
+    docStatePage: './pages/docState.js',
+  },
+  mocha: {
+    reporterOptions: {
+      reportDir: 'output',
+      json: 'false',
+      reportFilename: '[datetime]_[name]_[status]-report',
+      timestamp: 'longDate',
+    },
   },
   name: 'ID_check',
 };
