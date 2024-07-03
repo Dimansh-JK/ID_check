@@ -19,7 +19,9 @@ module.exports = {
 
   async submitData() {
     await I.scrollTo(locators.submitButton);
-    await I.forceClick(locators.submitButton);
+    I.amAcceptingPopups();
+    await I.click(locators.submitButton);
+    I.acceptPopup();
   },
   async checkDocStatus() {
     I.wait(2);
