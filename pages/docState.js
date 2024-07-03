@@ -4,22 +4,22 @@ require('dotenv').config();
 const { assert } = require('chai');
 
 module.exports = {
-  submitDocData() {
-    I.click(locators.kindOfDocSelector);
-    I.selectOption(locators.kindOfDocSelector, 'Закордонний паспорт');
+  async submitDocData() {
+    await I.click(locators.kindOfDocSelector);
+    await I.selectOption(locators.kindOfDocSelector, 'Закордонний паспорт');
 
-    I.click(locators.docAge);
-    I.selectOption(locators.docAge, 'Дорослий');
+    await I.click(locators.docAge);
+    await I.selectOption(locators.docAge, 'Дорослий');
 
-    I.click(locators.officialIdSelector);
-    I.selectOption(locators.officialIdSelector, 'Картки (ID)');
+    await I.click(locators.officialIdSelector);
+    await I.selectOption(locators.officialIdSelector, 'Картки (ID)');
 
-    I.fillField(locators.idNumber, process.env.ID_CARD_NUMBER);
+    await I.fillField(locators.idNumber, process.env.ID_CARD_NUMBER);
   },
 
   async submitData() {
-    I.scrollTo(locators.submitButton);
-    I.forceClick(locators.submitButton);
+    await I.scrollTo(locators.submitButton);
+    await I.forceClick(locators.submitButton);
   },
   async checkDocStatus() {
     I.wait(2);
